@@ -34,6 +34,7 @@ section {
 }
 
 /* Navbar Section Styles */
+/* (If you want) Normal Navbar Header *
 .header {
     position: fixed;
     top: 0;
@@ -45,32 +46,76 @@ section {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+} */
+/* (If you want) Glossy Transparent Navbar Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 10%;
+    /* background: rgba(25, 31, 54, 0.1); */
+    background: linear-gradient(180deg,
+    rgba(38, 43, 64, 0.8),
+    rgba(25, 31, 54, 0.8));
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
     font-size: 2.5rem;
+    color: var(--main-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.logo:hover {
+    /* color: var(--snd-bf-color); */
     color: var(--text-color);
-    font-weight: 700;
-    cursor: default;
+    text-shadow: 0 0 10px var(--main-color),
+        0 0 20px var(--main-color);
 }
 
 .navbar a {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     color: var(--text-color);
     margin-left: 5rem;
-    font-weight: 700;
+    font-weight: 800;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    /* color: var(--text-color) !important; */
+    text-shadow: 0 0 5px var(--main-color),
+        0 0 15px var(--main-color);
 }
 
 .navbar a:hover,
-.navbar a:active {
-    color: var(--text-color);
-    /* color: var(--main-color); */
+.navbar a:active,
+.navbar a.active {
+    color: var(--main-color);
 }
 
 #menu-icon {
     font-size: 3.6rem;
     color: var(--text-color);
     display: none;
+}
+
+#menu-icon:hover {
+    /* color: var(--snd-bf-color); */
+    color: gainsboro;
+    text-shadow: 0 0 10px var(--main-color),
+        0 0 20px var(--main-color);
+    cursor: pointer;
 }
 
 /* Home Section Styles */
@@ -83,6 +128,30 @@ section {
 .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
+}
+
+.name-text {
+    display: inline;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.typed-cursor {
+    font-weight: normal;
+    font-size: inherit;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .home-content h1 {
@@ -120,6 +189,11 @@ span {
 
 .home-content p {
     font-size: 1.7rem;
+    max-width: 700px;
+    line-height: 1.6;
+    margin-top: 1rem;
+    /* margin-bottom: 2rem;
+    text-align: justify; */
 }
 
 .social-media a {
@@ -149,10 +223,10 @@ span {
     background: var(--main-color);
     border-radius: 4rem;
     box-shadow: 0 0 1rem var(--main-color);
-    font-size: 1.6rem;
+    font-size: 1.65rem;
+    font-weight: 700;
     color: var(--bg-color);
     letter-spacing: .1rem;
-    font-weight: 600;
     transition: .5s ease;
 }
 
@@ -170,7 +244,7 @@ span {
 }
 
 .about-img img {
-    width: 35vw;
+    width: 30vw;
 }
 
 .heading {
@@ -261,8 +335,6 @@ span {
 
 .portfolio-box img {
     width: 100%;
-    /* height: 100%; */
-    /* object-fit: cover; */ 
     transition: .5s ease;
     opacity: 0.7;
 }
@@ -293,7 +365,7 @@ span {
 }
 
 .portfolio-layer h4 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .portfolio-layer p {
@@ -313,7 +385,7 @@ span {
 
 .portfolio-layer a i {
     font-size: 2rem;
-    color: var(--snd-bf-color);
+    color: var(--snd-bg-color);
 }
 
 /* Contact Section Styles */
@@ -369,27 +441,54 @@ span {
 }
 
 .footer-text {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+}
+
+.footer-text a {
+    color: var(--main-color);
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.footer-text a:hover {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    text-shadow: 0 0 10px var(--main-color),
+        0 0 15px var(--main-color);
+    cursor: pointer;
 }
 
 .footer-iconTop {
-    display: inline-flex;
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
     justify-content: center;
     align-items: center;
     padding: .8rem 1rem;
     background: var(--main-color);
     border-radius: 2rem;
-    transition: .5s ease;
+    transition: .2s ease;
+    box-shadow: none;
 }
 
-.footer-iconTop a:hover {
-    box-shadow: 0 0 1rem var(--main-color);
+.footer-iconTop.show {
+    display: inline-flex;
+}
+
+
+.footer-iconTop.show:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--main-color),
+                0 0 20px var(--main-color);
 }
 
 .footer-iconTop a i {
-    font-size: 2.4rem;
+    font-size: 1.55rem;
     color: var(--snd-bf-color);
 }
+
 
 /* Break Point */
 @media(max-width: 1200px) {
@@ -403,7 +502,7 @@ span {
         padding: 2rem 3%;
     }
 
-    section {
+    .section {
         padding: 10rem 3%;
     }
 
@@ -427,6 +526,28 @@ span {
 @media(max-width: 768px) {
     #menu-icon {
         display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        display: none;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
     }
 
     .home {
