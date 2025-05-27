@@ -3,7 +3,6 @@ let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
-    // menuIcon.classList.toggle('bx-x');
     menuIcon.classList.toggle('fa-xmark');
     navbar.classList.toggle('active');
 }
@@ -35,6 +34,26 @@ window.onscroll = () => {
     menuIcon.classList.remove('fa-xmark');
     navbar.classList.remove('active');
 }
+// ==================== Dark/Light Theme Toggle ====================
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+function setTheme(isLight) {
+    document.body.classList.toggle('light-theme', isLight);
+    themeIcon.classList.toggle('fa-moon', isLight);
+    themeIcon.classList.toggle('fa-sun', !isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+
+// Load saved theme from localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') setTheme(true);
+
+// Toggle theme on button click
+themeToggle.addEventListener('click', () => {
+    const isLight = !document.body.classList.contains('light-theme');
+    setTheme(isLight);
+});
 // ==================== Scroll Reveal ====================
 ScrollReveal({
     // reset: true,
