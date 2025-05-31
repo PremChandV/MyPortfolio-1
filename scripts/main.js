@@ -45,9 +45,13 @@ function setTheme(isLight) {
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
 }
 
-// Load saved theme from localStorage
+// Load saved theme or default to dark
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') setTheme(true);
+if (savedTheme === 'light') {
+    setTheme(true);
+} else {
+    setTheme(false); // Apply dark theme as default
+}
 
 // Toggle theme on button click
 themeToggle.addEventListener('click', () => {

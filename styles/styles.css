@@ -80,7 +80,6 @@ section {
     left: 0;
     width: 100%;
     padding: 2rem 10%;
-    /* background: rgba(25, 31, 54, 0.1); */
     background: linear-gradient(180deg,
     rgba(38, 43, 64, 0.8),
     rgba(25, 31, 54, 0.8));
@@ -104,7 +103,6 @@ section {
 }
 
 .logo:hover {
-    /* color: var(--snd-bf-color); */
     color: var(--text-color);
     text-shadow: 0 0 10px var(--main-color),
         0 0 20px var(--main-color);
@@ -119,7 +117,6 @@ section {
 }
 
 .navbar a:hover {
-    /* color: var(--text-color) !important; */
     text-shadow: 0 0 5px var(--main-color),
         0 0 15px var(--main-color);
 }
@@ -137,7 +134,6 @@ section {
 }
 
 #menu-icon:hover {
-    /* color: var(--snd-bf-color); */
     color: gainsboro;
     text-shadow: 0 0 10px var(--main-color),
         0 0 20px var(--main-color);
@@ -154,6 +150,10 @@ section {
 .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
 }
 
 .name-text {
@@ -186,10 +186,6 @@ section {
     line-height: 1.5;
 }
 
-.home-content h3:nth-of-type(2) {
-    margin-bottom: 2rem;
-}
-
 span {
     color: var(--main-color);
 }
@@ -218,8 +214,6 @@ span {
     max-width: 700px;
     line-height: 1.6;
     margin-top: 1rem;
-    /* margin-bottom: 2rem;
-    text-align: justify; */
 }
 
 .social-media a {
@@ -251,7 +245,7 @@ span {
     box-shadow: 0 0 1rem var(--main-color);
     font-size: 1.65rem;
     font-weight: 700;
-    color: var(--bg-color);
+    color: rgb(0, 0, 0);
     letter-spacing: .1rem;
     transition: .5s ease;
 }
@@ -301,7 +295,6 @@ span {
 .services-container {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -403,14 +396,14 @@ span {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 5rem;
-    height: 5rem;
-    background: var(--text-color);
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
     border-radius: 50%;
 }
 
 .portfolio-layer a i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--snd-bf-color);
 }
 
@@ -449,6 +442,16 @@ span {
 
 .contact form textarea {
     resize: none;
+}
+
+.contact form .input-box input, 
+.contact form textarea {
+    border: 1px solid grey;
+}
+
+.contact form .input-box input::placeholder, 
+.contact form textarea::placeholder {
+    color: grey;
 }
 
 .contact form .btn {
@@ -593,6 +596,7 @@ span {
 
     .theme-toggle {
         order: 1;
+        color: orange;
         margin-left: 24rem;
         font-size: 2.5rem;
     }
@@ -670,10 +674,6 @@ span {
 }
 
 @media(max-width: 617px) {
-    .portfolio-container {
-        grid-template-columns: 1fr;
-    }
-
     .home-img img {
         width: 80vw;
         margin-top: 8rem;
@@ -683,6 +683,14 @@ span {
         width: 100vw;
         margin-top: 4rem;
     }
+
+    .theme-toggle {
+        color: orange;
+    }
+
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media(max-width: 450px) {
@@ -690,12 +698,71 @@ span {
         font-size: 50%;
     }
 
+    .theme-toggle {
+        color: orange;
+    }
+
+    .home-image img {
+        width: 80%;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .home-content {
+        text-align: center;
+    }
+
+    .home-content p {
+        font-size: medium;
+    }
+
+    .about-img img {
+        width: 80%;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .about-content, .about-content .heading {
+        text-align: center;
+    }
+
+    .about-content h3 {
+        font-size: large;
+    }
+
+    .about-content p {
+        font-size: medium;
+    }
+
     .contact form .input-box input {
         width: 100%;
     }
 }
 
-/* ========================= Light Theme =====================*/
+/* Theme Toggle Styles */
+.theme-toggle {
+    border: none;
+    background: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+    .theme-toggle .fa-sun {
+        color: orange;
+    }
+
+    .theme-toggle .fa-moon {
+        color: inherit;
+    }
+}
+
+/* Light Theme*/
 body.light-theme {
     --bg-color: gainsboro;
     --snd-bf-color: whitesmoke;
@@ -741,17 +808,25 @@ body.light-theme #menu-icon:hover {
     cursor: pointer;
 }
 
-/* Optional: Button Style */
-.theme-toggle {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: color 0.3s ease;
-}
-
 body.light-theme .theme-toggle:hover {
     color: var(--main-color);
     text-shadow: none;
 }
+
+body.light-theme .portfolio-layer a {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+}
+
+body.light-theme .contact form .input-box input,
+body.light-theme .contact form textarea {
+    border: 1px solid gray;
+}
+
+body.light-theme .btn {
+    color: rgb(255, 255, 255);
+}
+
+/* 
+1. Dark & Light Theme Mode Problem & 
+2. Dark Theme Mode Set to Default 
+*/
