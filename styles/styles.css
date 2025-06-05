@@ -459,6 +459,18 @@ span {
     cursor: pointer;
 }
 
+#msg {
+    display: block;
+    color: greenyellow;
+    font-size: large;
+    font-weight: 700;
+    text-align: center;
+}
+
+body.light-theme #msg {
+    color: green;
+}
+
 /* Footer Section Styles */
 .footer {
     display: flex;
