@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     // Typewriting effect for multiple roles
     var typed = new Typed('.multiple-text', {
-        strings: ['Web Developer', 'Software Engineer', 'UI/UX Designer', 'Youtuber'],
+        strings: ['Software Engineer', 'Web Developer', 'UI/UX Designer', 'Youtuber'],
         typeSpeed: 100,
         backSpeed: 100,
         backDelay: 1000,
