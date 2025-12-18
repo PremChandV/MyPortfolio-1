@@ -43,6 +43,16 @@ function setTheme(isLight) {
     themeIcon.classList.toggle('fa-moon', isLight);
     themeIcon.classList.toggle('fa-sun', !isLight);
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+    // ===== Footer year color =====
+    const year = document.getElementById('year');
+    if (year) {
+        if (isLight) {
+            year.style.setProperty('color', '#000000', 'important');
+        } else {
+            year.style.setProperty('color', '#ffffff', 'important');
+        }
+    }
 }
 
 // Load saved theme or default to dark
@@ -59,15 +69,6 @@ themeToggle.addEventListener('click', () => {
     setTheme(isLight);
 });
 
-// ===== Footer year color =====
-    const year = document.getElementById('year');
-    if (year) {
-        if (isLight) {
-            year.style.setProperty('color', '#000000', 'important');
-        } else {
-            year.style.setProperty('color', '#ffffff', 'important');
-        }
-    }
 // ==================== Scroll Reveal ====================
 ScrollReveal({
     // reset: true,
