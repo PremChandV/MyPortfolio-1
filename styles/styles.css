@@ -531,7 +531,7 @@ body.light-theme #msg {
 }
 
 #year {
-    color: #fff;
+    color: #fff !important;
 }
 
 /* Break Point */
