@@ -530,6 +530,10 @@ body.light-theme #msg {
     color: var(--snd-bf-color);
 }
 
+#year {
+    color: #fff;
+}
+
 /* Break Point */
 @media (prefers-reduced-motion: reduce) {
     * {
