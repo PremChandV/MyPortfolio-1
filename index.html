@@ -178,6 +178,14 @@
           document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("year").textContent = new Date().getFullYear();
   });
+        var year = document.getElementById("year");
+
+if (isLight) {
+  year.style.setProperty("color", "#000000", "important");
+} else {
+  year.style.setProperty("color", "#ffffff", "important");
+}
+
     </script>
 </body>
 
