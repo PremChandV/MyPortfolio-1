@@ -58,6 +58,16 @@ themeToggle.addEventListener('click', () => {
     const isLight = !document.body.classList.contains('light-theme');
     setTheme(isLight);
 });
+
+// ===== Footer year color =====
+    const year = document.getElementById('year');
+    if (year) {
+        if (isLight) {
+            year.style.setProperty('color', '#000000', 'important');
+        } else {
+            year.style.setProperty('color', '#ffffff', 'important');
+        }
+    }
 // ==================== Scroll Reveal ====================
 ScrollReveal({
     // reset: true,
