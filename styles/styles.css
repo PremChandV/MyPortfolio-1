@@ -842,6 +842,10 @@ body.light-theme .btn {
     color: rgb(255, 255, 255);
 }
 
+body.light-theme #year {
+    color: #000000;
+}
+
 /* 
 1. Dark & Light Theme Mode Problem & 
 2. Dark Theme Mode Set to Default 
