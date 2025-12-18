@@ -843,7 +843,7 @@ body.light-theme .btn {
 }
 
 body.light-theme #year {
-    color: #000000;
+    color: #000000 !important;
 }
 
 /* 
